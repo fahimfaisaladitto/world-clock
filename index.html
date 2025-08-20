@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Clock</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div class="main-card relative w-full max-w-md border rounded-2xl shadow-2xl p-6 fade-in">
+        
+        <!-- Toggles -->
+        <div class="absolute top-5 right-5 flex items-center space-x-2">
+            <!-- Clock Type Toggle -->
+            <input type="checkbox" id="clockTypeToggle" class="hidden"/>
+            <label for="clockTypeToggle" class="toggle-bg w-14 h-8 rounded-full flex items-center p-1 cursor-pointer transition-colors">
+                <span class="toggle-ball w-6 h-6 rounded-full shadow-md transform transition-transform duration-300 ease-in-out" id="clockToggleBall">
+                    <svg id="digitalIcon" class="w-4 h-4 m-1" style="color: var(--text-secondary);" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path></svg>
+                    <svg id="analogIcon" class="w-4 h-4 m-1 hidden" style="color: var(--text-secondary);" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </span>
+            </label>
+            <!-- Dark Mode Toggle -->
+            <input type="checkbox" id="darkModeToggle" class="hidden"/>
+            <label for="darkModeToggle" class="toggle-bg w-14 h-8 rounded-full flex items-center p-1 cursor-pointer transition-colors">
+                <span class="toggle-ball w-6 h-6 rounded-full shadow-md transform transition-transform duration-300 ease-in-out" id="themeToggleBall">
+                    <svg id="sunIcon" class="w-4 h-4 m-1 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <svg id="moonIcon" class="w-4 h-4 m-1 text-sky-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </span>
+            </label>
+        </div>
+        
+        <!-- Icon and Header Text -->
+        <div class="text-center mb-6">
+            <div class="inline-block p-3 bg-black/5 rounded-full mb-4">
+                <svg class="w-10 h-10 accent-text" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h1 class="text-2xl font-bold">World Clock</h1>
+            <p id="timezone-display" class="mt-1" style="color: var(--text-secondary);">GMT+6</p>
+        </div>
+
+        <!-- Clock Display -->
+        <div id="clock-container" class="text-center my-8 flex items-center justify-center" style="height: 250px;">
+            <div id="digital-clock">
+                <h2 id="time-display" class="text-4xl md:text-5xl font-bold tracking-wider accent-text">00:00:00 AM</h2>
+                <p id="date-display" class="mt-2 text-lg" style="color: var(--text-secondary);">Date</p>
+            </div>
+            <canvas id="analog-clock" class="hidden"></canvas>
+        </div>
+
+        <!-- Controls -->
+        <div class="space-y-4">
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+                <input type="text" id="search-input" placeholder="Search for a city..." class="input-field w-full p-3 pl-10 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)]">
+            </div>
+            <select id="timezone-select" class="input-field w-full p-3 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)]">
+                <!-- Timezones will be populated by JS -->
+            </select>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
