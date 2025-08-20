@@ -3,6 +3,12 @@
 
 <h2 align="left">Link: https://fahimfaisaladitto.github.io/world-clock/ </h2>
 
+# Screenshots
+<img width="403" height="819" alt="iPhone-13-PRO-fahimfaisaladitto github io (15)" src="https://github.com/user-attachments/assets/ebe99c5c-26d7-4251-9e98-59798db00a33" />
+<img width="403" height="819" alt="iPhone-13-PRO-fahimfaisaladitto github io (16)" src="https://github.com/user-attachments/assets/cf87f5dd-8d68-4985-a86d-7b9747c135f4" />
+
+
+
 # Features
 • Dual Clock Modes: Seamlessly switch between a sleek, animated digital display and a classic analog clock face with a dedicated toggle.
 
